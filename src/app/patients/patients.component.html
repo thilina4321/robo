@@ -1,0 +1,35 @@
+<div class="profile__image">
+  <img class="img" [src]="'pro-pic-'+patients[0]?.uid | getDownloadURL" >
+  <div class="main__details">
+    <input type="file" #img     (change)="onImagePick($event)"
+    >
+    <button type="button"
+     mat-stroked-button (click)="img.click()"> Add Image </button>
+    <h1>Patient Name : {{patients[0]?.patient.patientName}}</h1>
+    <h1>Patient Age : {{patients[0]?.patient.patientAge}}</h1>
+  </div>
+</div>
+
+<div class="card" *ngFor="let patient of patients">
+  <mat-card>
+    <h2>Patient : {{ patient.patient.patientName }}</h2>
+    <p> <b>Age : </b>{{ patient.patient.patientAge }}</p>
+    <p> <b>Gender :</b> {{ patient.patient.patientGender }}</p>
+    <p> <b>NIC :</b> {{ patient.patient.patientNIC }}</p>
+    <p> <b>Address :</b> {{ patient.patient.patientAddress }}</p>
+    <p> <b>Telephone Number :</b> {{ patient.patient.patientTeleNum }}</p>
+    <p> <b>Patient Mobile :</b> {{ patient.patient.patientMobile }}</p>
+    <p> <b>Patient Email :</b> {{ patient.patient.patientEmail }}</p>
+  </mat-card>
+
+  <mat-card>
+    <h2>Custodian : {{ patient.custodian.custodianName }}</h2>
+    <p> <b>Age :</b> {{ patient.custodian.custodianAge }}</p>
+    <p> <b>Gender :</b> {{ patient.custodian.custodianGenger }}</p>
+    <p> <b>NIC :</b> {{ patient.custodian.custodianNIC }}</p>
+    <p> <b>Address : </b>{{ patient.custodian.custodianAddress }}</p>
+    <p> <b>Telephone Number :</b> {{ patient.custodian.custodianTele }}</p>
+    <p> <b>Mobile Number :</b> {{ patient.custodian.custodianMobile }}</p>
+    <p> <b>Email :</b> {{ patient.custodian.custodianEmail }}</p>
+  </mat-card>
+</div>

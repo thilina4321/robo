@@ -1,0 +1,47 @@
+.profile__image{
+  height: 200px;
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+}
+
+input[type="file"]{
+  visibility: hidden;
+}
+
+.img{
+  width: 200px;
+  height: 100%;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+.main__details{
+  display: flex;
+  flex-direction: column;
+}
+
+.card{
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card{
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.card__search {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.card__search input{
+  width: 100%;
+}

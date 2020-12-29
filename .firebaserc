@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "robo-app-2b51c": {
+      "hosting": {
+        "robo": [
+          "robo-app-2b51c"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.patient_reg{
+  width: 90%;
+  margin: 0 auto;
+}
+
+mat-form-field{
+  width: 100%;
+}

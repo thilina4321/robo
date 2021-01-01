@@ -3,36 +3,39 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import './patient';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PatientService {
-  constructor(private firestore: AngularFirestore,
-    private storage:AngularFireStorage,
-    private router: Router) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private router: Router
+  ) {}
 
+  downloadURL = new BehaviorSubject<Observable<string>>(of());
+  patients: { uid: string; patient: Patient; custodian: custodian }[] = [];
+  patients$ = new BehaviorSubject<
+    { uid: string; patient: Patient; custodian: custodian }[]
+  >([]);
+  patientSubscription: Subscription[] = [];
 
-
-  downloadURL = new BehaviorSubject<Observable<string>>(of())
-  patients: { uid:string, patient: Patient; custodian: custodian }[] = [];
-  patients$ = new BehaviorSubject<{uid:string, patient: Patient;
-  custodian: custodian }[]>([]);
-  patientSubscription :Subscription[] = []
 
   fetchData(userId: string) {
-    this.patientSubscription.push(this.firestore
-      .collection<{ uid:string,patient: Patient; custodian: custodian }>(
-        'patients',
-        (ref) => ref.where('uid', '==', userId)
-      )
-      .valueChanges()
-      .subscribe((result) => {
-        this.patients = result;
-
-        this.patients$.next(this.patients);
-      }))
+    this.patientSubscription.push(
+      this.firestore
+        .collection<{ uid: string; patient: Patient; custodian: custodian }>(
+          'patients',
+          (ref) => ref.where('uid', '==', userId)
+        )
+        .valueChanges()
+        .subscribe((result) => {
+          this.patients = result;
+          this.patients$.next(this.patients);
+        })
+    );
   }
 
   addPatientsDataToDatabase(
@@ -41,7 +44,7 @@ export class PatientService {
     custodian: custodian
   ) {
     const neededDataAboutPatient = {
-      userId,
+      uid: userId,
       patient,
       custodian,
     };
@@ -53,19 +56,11 @@ export class PatientService {
       });
   }
 
-
-
-
-
-
-  clearSubscription(){
-    if(this.patientSubscription){
-
-      this.patientSubscription.forEach(sub=>{
-        sub.unsubscribe()
-      })
+  clearSubscription() {
+    if (this.patientSubscription) {
+      this.patientSubscription.forEach((sub) => {
+        sub.unsubscribe();
+      });
     }
   }
 }
-
-

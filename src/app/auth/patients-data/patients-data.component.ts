@@ -16,7 +16,14 @@ export class PatientsDataComponent implements OnInit {
     private patientService:PatientService
     ) { }
 
+    isLoading = false
+
   ngOnInit(): void {
+
+    this.authService.isLoading.subscribe(isLoad=>{
+      this.isLoading = isLoad
+    })
+
     this.patientService.patients$.subscribe((patientData)=>{
       if(patientData.length > 0){
         this.router.navigate(['/patients'])

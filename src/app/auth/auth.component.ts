@@ -11,7 +11,11 @@ export class AuthComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
 
+  isLoading = false
   ngOnInit(): void {
+    this.authService.isLoading.subscribe((isLoad)=>{
+      this.isLoading = isLoad
+    })
   }
 
   isSingup = false

@@ -9,8 +9,13 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit{
 
   constructor(private authService:AuthService){}
+  isAuth = false
 
   ngOnInit(){
+
+    this.authService.isUser.subscribe((isUser)=>{
+      this.isAuth = isUser
+    })
     this.authService.authStatus()
   }
 

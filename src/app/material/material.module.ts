@@ -7,6 +7,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatButtonModule} from '@angular/material/button'
 import {MatRadioModule} from '@angular/material/radio'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatToolbarModule,
     MatButtonModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

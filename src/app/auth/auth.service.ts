@@ -20,22 +20,26 @@ export class AuthService {
 
   getUserId(){
     return this.userId$
-
   }
 
+  isUser = new BehaviorSubject(false)
+  isLoading = new BehaviorSubject(false)
+
   authStatus() {
+    this.isLoading.next(true)
     this.auth.authState.subscribe(
       (user) => {
+        this.isLoading.next(false)
         if (user) {
           this.userId$.next(user.uid)
-
+          this.isUser.next(true)
           this.router.navigate(['/patients'])
         }else{
           this.router.navigate(['/'])
         }
       },
       (error) => {
-
+        this.isLoading.next(false)
         this.snackbar.open(error.message, 'ok', {
           duration: 3000,
         });
@@ -44,8 +48,12 @@ export class AuthService {
   }
 
   createUser(email: string, password: string) {
+    this.isLoading.next(true)
     this.auth.createUserWithEmailAndPassword(email, password).then(() => {
+      this.isLoading.next(false)
+
     },(error) => {
+      this.isLoading.next(false)
 
       this.snackbar.open(error.message, 'ok', {
         duration: 3000,
@@ -54,10 +62,14 @@ export class AuthService {
   }
 
   userLogin(email: string, password: string) {
+    this.isLoading.next(true)
+
     this.auth.signInWithEmailAndPassword(email, password).then(() => {
+      this.isLoading.next(false)
 
       this.router.navigate(['/patients']);
     },(error) => {
+      this.isLoading.next(false)
 
       this.snackbar.open(error.message, 'ok', {
         duration: 3000,

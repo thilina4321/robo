@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
   <span style="flex: 1 1 auto;">Robo </span>
 
-  <span> <a routerLink="/"> Sign up </a>  </span>
-  <span> <a routerLink="/reg-patients"> Register patients </a>  </span>
-  <span> <a routerLink="/patients"> Patients </a>  </span>
-  <span> <button mat-button (click)="onLogout()"> Logout </button>  </span>
+  <span *ngIf="!isAuth"> <a mat-button routerLink="/"> Sign up </a>  </span>
+  <ng-container *ngIf="isAuth">
+
+    <span>  <a mat-button routerLink="/patients"> Patients </a>  </span>
+    <span> <button mat-button (click)="onLogout()"> Logout </button>  </span>
+  </ng-container>
 
 </mat-toolbar>
-
-
 
 <router-outlet></router-outlet>

@@ -36,6 +36,7 @@ export class PatientsComponent implements OnInit {
 
 
       this.patientService.patients$.subscribe((patients$) => {
+
         if(patients$.length == 0){
           this.router.navigate(['/reg-patients'])
         }else{

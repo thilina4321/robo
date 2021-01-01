@@ -78,6 +78,7 @@ export class AuthService {
   }
 
   logout(){
+    this.isUser.next(false)
     this.auth.signOut()
     this.userId$.next('')
     this.patientService.clearSubscription()

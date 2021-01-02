@@ -1,13 +1,26 @@
 <mat-toolbar color="primary">
-  <span style="flex: 1 1 auto;">Robo </span>
 
-  <span *ngIf="!isAuth"> <a mat-button routerLink="/"> Sign up </a>  </span>
-  <ng-container *ngIf="isAuth">
+  <div class="main__toolbar">
 
-    <span>  <a mat-button routerLink="/patients"> Patients </a>  </span>
-    <span> <button mat-button (click)="onLogout()"> Logout </button>  </span>
-  </ng-container>
+    <div class="logo">
+      <img src="../assets/robo.jpg" alt="logo">
+    </div>
 
+    <span class="robo">
+      <a mat-button routerLink="/"> Robo </a>
+    </span>
+
+    <span> <a mat-button routerLink="/"> Home </a> </span>
+    <ng-container *ngIf="!isAuth">
+      <span> <a mat-button routerLink="/signup"> Sign up </a> </span>
+      <span> <a mat-button routerLink="/login"> Login </a> </span>
+    </ng-container>
+
+    <ng-container *ngIf="isAuth">
+      <span> <a mat-button routerLink="/patients"> Patients </a> </span>
+      <span> <button mat-button (click)="onLogout()">Logout</button> </span>
+    </ng-container>
+  </div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

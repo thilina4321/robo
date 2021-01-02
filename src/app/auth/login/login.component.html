@@ -2,6 +2,7 @@
   <div class="signup">
     <mat-card>
       <form (submit)="onSubmit(f)" #f="ngForm">
+
         <mat-form-field>
           <input
             class="input"
@@ -25,18 +26,17 @@
         </mat-form-field>
 
         <div style="width: 100%; text-align: end">
-          <button mat-raised-button>Sign up</button>
+          <button mat-raised-button> Log in </button>
         </div>
-
 
       </form>
     </mat-card>
   </div>
 
   <div class="auth__status" >
-    <span> I'm already a member </span>
+    <span> I am not a member ?  </span>
     <button (click)="changeLoginStatus()" color="primary" mat-button>
-      Log in
+      Sign up
     </button>
   </div>
 

@@ -16,6 +16,8 @@ import { MaterialModule } from './material/material.module';
 import { PatientPipe } from './patients/patient.pipe';
 import { AuthComponent } from './auth/auth.component';
 import { PatientsDataComponent } from './auth/patients-data/patients-data.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { PatientsDataComponent } from './auth/patients-data/patients-data.compon
     PatientsComponent,
     PatientPipe,
     AuthComponent,
-    PatientsDataComponent
+    PatientsDataComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,19 @@
 .patient_reg{
   width: 90%;
   margin: 0 auto;
+  color: aliceblue; 
 }
 
 mat-form-field{
   width: 100%;
 }
+
+.p_back{
+  background:url('../../../assets/patient1.jpeg');
+  background-size: cover;
+  height: 100vh;
+}
+::placeholder{
+  color: aliceblue;
+ }
+

@@ -16,3 +16,9 @@ mat-form-field{
   text-align: center;
 
 }
+
+.signup_back{
+  background: url('../../assets/sign-up.jpeg');
+  background-size: cover;
+  height: 100vh;
+}

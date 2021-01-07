@@ -18,6 +18,7 @@ import { AuthComponent } from './auth/auth.component';
 import { PatientsDataComponent } from './auth/patients-data/patients-data.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './auth/login/login.component';
     AuthComponent,
     PatientsDataComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,

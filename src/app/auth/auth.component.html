@@ -1,5 +1,8 @@
+<div class="signup_back">
+
 <div *ngIf="!isLoading">
   <div class="signup">
+    <br><br><br>
     <mat-card>
       <form (submit)="onSubmit(f)" #f="ngForm">
         <mat-form-field>
@@ -31,12 +34,13 @@
 
       </form>
     </mat-card>
+  
   </div>
 
   <div class="auth__status" >
-    <span> I'm already a member </span>
+    <span> <b>I'm already a member</b> </span>
     <button (click)="changeLoginStatus()" color="primary" mat-button>
-      Log in
+      <b>Log in</b>
     </button>
   </div>
 
@@ -53,4 +57,5 @@
   *ngIf="isLoading"
 >
   <mat-spinner></mat-spinner>
+</div>
 </div>

@@ -1,4 +1,4 @@
-.signup{
+.login{
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
@@ -15,4 +15,10 @@ mat-form-field{
   margin: 10px auto;
   text-align: center;
 
+}
+
+.login_back{
+  background: url('../../../assets/login.jpg');
+  background-size: cover;
+  height: 100vh;
 }
